@@ -840,7 +840,7 @@ export const AddNewFDRForm: React.FC<AddNewFDRFormProps> = ({
             {/* Maturity Date */}
             <div>
               <label className="block font-semibold text-slate-700 mb-1">
-                Maturity Date (Minimum 3–5 Years Tenure) <span className="text-rose-600">*</span>
+                Due Date (Maturity Date) <span className="text-rose-600">*</span>
               </label>
               <input
                 type="date"

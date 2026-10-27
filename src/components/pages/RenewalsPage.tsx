@@ -76,10 +76,10 @@ export const RenewalsPage: React.FC<RenewalsPageProps> = ({
             <span className="text-stone-500">Tenure Extensions</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-            FDR Renewal & Replacement Management
+            Renewals
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl font-sans">
-            Endorsement renewals, extension tracking, and lineage chaining of predecessor and successor deposit certificates.
+          <p className="text-xs sm:text-sm text-stone-600 leading-normal max-w-3xl font-sans">
+            Track renewals, deposit extensions, and replacement certificates.
           </p>
         </div>
 

@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import {
   ArrowLeft,
-  Building2,
-  Landmark,
-  Calendar,
-  ShieldCheck,
-  AlertTriangle,
-  Clock,
-  FileText,
-  FileCheck2,
-  CheckCircle2,
   Edit3,
   MessageSquare,
+  AlertTriangle,
   AlertCircle,
-  FileQuestion,
   ExternalLink,
   X,
   History,
   ShieldAlert,
   Info,
-  Layers,
   ChevronRight,
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+  FileCheck2,
+  FileText,
 } from 'lucide-react';
 import {
   FDRRecord,
@@ -49,7 +44,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
   fdr,
   onBackToRegistry,
   onUpdateFDR,
-  onNavigate,
+  onNavigate: _onNavigate,
 }) => {
   // Modal states
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -80,43 +75,43 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
     switch (status) {
       case 'ACTIVE':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200">
-            <span className="h-2 w-2 rounded-full bg-emerald-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Active & Verified
           </span>
         );
       case 'PENDING_VERIFICATION':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-teal-50 px-2.5 py-1 text-xs font-semibold text-teal-800 border border-teal-200">
-            <span className="h-2 w-2 rounded-full bg-teal-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-teal-50 px-2.5 py-1 text-xs font-semibold text-teal-800 border border-teal-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-600" />
             Pending Verification
           </span>
         );
       case 'EXPIRING_SOON':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800 border border-amber-200">
-            <span className="h-2 w-2 rounded-full bg-amber-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800 border border-amber-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Expiring Soon ({days}d)
           </span>
         );
       case 'MATURED':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-800 border border-rose-200">
-            <span className="h-2 w-2 rounded-full bg-rose-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-800 border border-rose-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
             Matured / Overdue
           </span>
         );
       case 'RENEWED':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-800 border border-blue-200">
-            <span className="h-2 w-2 rounded-full bg-blue-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-sky-50 px-2.5 py-1 text-xs font-semibold text-sky-800 border border-sky-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
             Renewed
           </span>
         );
       case 'RELEASED':
         return (
           <span className="inline-flex items-center gap-1.5 rounded bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 border border-slate-300">
-            <span className="h-2 w-2 rounded-full bg-slate-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-500" />
             Released / Discharged
           </span>
         );
@@ -134,22 +129,22 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
     switch (risk) {
       case 'HIGH':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 border border-rose-200">
-            <span className="h-2 w-2 rounded-full bg-rose-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 border border-rose-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
             High Risk ({score}/100)
           </span>
         );
       case 'MEDIUM':
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-200">
-            <span className="h-2 w-2 rounded-full bg-amber-600" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Medium Risk ({score}/100)
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1.5 rounded bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 border border-slate-200">
-            <span className="h-2 w-2 rounded-full bg-slate-500" />
+          <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Low Risk ({score}/100)
           </span>
         );
@@ -160,19 +155,19 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
   const renderTimelineIcon = (type: TimelineEvent['type']) => {
     switch (type) {
       case 'SUBMISSION':
-        return <FileText className="h-4 w-4 text-teal-700" />;
+        return <FileText className="h-3.5 w-3.5 text-teal-700" />;
       case 'SCRUTINY':
-        return <ShieldCheck className="h-4 w-4 text-teal-700" />;
+        return <ShieldCheck className="h-3.5 w-3.5 text-teal-700" />;
       case 'CORRECTION':
-        return <AlertTriangle className="h-4 w-4 text-amber-600" />;
+        return <AlertTriangle className="h-3.5 w-3.5 text-amber-600" />;
       case 'VERIFICATION':
-        return <CheckCircle2 className="h-4 w-4 text-emerald-600" />;
+        return <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />;
       case 'RENEWAL':
-        return <Clock className="h-4 w-4 text-blue-600" />;
+        return <Clock className="h-3.5 w-3.5 text-sky-600" />;
       case 'RELEASE':
-        return <FileCheck2 className="h-4 w-4 text-slate-600" />;
+        return <FileCheck2 className="h-3.5 w-3.5 text-slate-600" />;
       default:
-        return <History className="h-4 w-4 text-slate-600" />;
+        return <History className="h-3.5 w-3.5 text-slate-600" />;
     }
   };
 
@@ -324,9 +319,9 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Breadcrumb & Header Action Banner (Editorial Style) */}
-      <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-mono text-stone-500 mb-3">
+        <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-3">
           <button
             type="button"
             onClick={onBackToRegistry}
@@ -336,7 +331,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             <span>FDR Registry</span>
           </button>
           <span>/</span>
-          <span className="font-mono text-stone-700">{fdr.referenceNo}</span>
+          <span className="font-mono text-slate-700">{fdr.referenceNo}</span>
           <span>/</span>
           <span className="font-semibold text-slate-900 font-sans">Dossier Details</span>
         </div>
@@ -345,7 +340,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5">
           <div className="space-y-1.5">
             <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="font-mono text-xs bg-stone-100 text-slate-800 px-2.5 py-0.5 rounded-md border border-stone-200">
+              <span className="font-mono text-xs bg-slate-100 text-slate-800 px-2.5 py-0.5 rounded border border-slate-200 tabular-nums">
                 {fdr.referenceNo}
               </span>
               {renderStatusBadge(fdr.status, fdr.daysToMaturity)}
@@ -356,11 +351,11 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
               {fdr.institutionName}
             </h2>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-600 font-sans">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 font-sans">
               <span>AICTE ID: <strong className="font-mono text-slate-900">{fdr.aictePermanentId}</strong></span>
-              <span className="text-stone-300">•</span>
+              <span className="text-slate-300">·</span>
               <span>{fdr.regionalOffice}</span>
-              <span className="text-stone-300">•</span>
+              <span className="text-slate-300">·</span>
               <span>State: {fdr.state}</span>
             </div>
           </div>
@@ -370,25 +365,25 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             <button
               type="button"
               onClick={onBackToRegistry}
-              className="inline-flex items-center gap-1.5 rounded-md border border-stone-200/90 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 hover:bg-stone-50 transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 rounded-md border border-slate-200/90 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors shadow-xs"
             >
-              <ArrowLeft className="h-3.5 w-3.5 text-stone-400" />
+              <ArrowLeft className="h-3.5 w-3.5 text-slate-400" />
               <span>Back to Registry</span>
             </button>
 
             <button
               type="button"
               onClick={() => setIsEditModalOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-md border border-stone-200/90 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 hover:bg-stone-50 transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 rounded-md border border-slate-200/90 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors shadow-xs"
             >
-              <Edit3 className="h-3.5 w-3.5 text-stone-500" />
+              <Edit3 className="h-3.5 w-3.5 text-slate-500" />
               <span>Edit Record</span>
             </button>
 
             <button
               type="button"
               onClick={() => setIsObservationModalOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-md border border-stone-200/90 bg-white px-3.5 py-2 text-xs font-medium text-teal-800 hover:bg-teal-50/50 transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 rounded-md border border-teal-200/80 bg-teal-50/50 px-3.5 py-2 text-xs font-medium text-teal-800 hover:bg-teal-100/50 transition-colors shadow-xs"
             >
               <MessageSquare className="h-3.5 w-3.5 text-teal-800" />
               <span>Record Observation</span>
@@ -421,12 +416,12 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
         </div>
 
         {/* Demo Mode Sub-banner */}
-        <div className="mt-5 pt-3.5 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-500 font-mono">
+        <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
           <div className="flex items-center gap-2 font-sans">
             <Info className="h-3.5 w-3.5 text-teal-800" />
             <span>Interactive Demo: Actions update shared in-memory state across Registry & Dashboard.</span>
           </div>
-          <span className="font-mono text-[10px] text-stone-400">PROTOTYPE-LEDGER</span>
+          <span className="font-mono text-[10px] text-slate-400">PROTOTYPE-LEDGER</span>
         </div>
       </div>
 
@@ -435,32 +430,32 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
         {/* LEFT COLUMN: Overview, Verification Compare, Risk Assessment, Documents (8 cols) */}
         <div className="lg:col-span-8 space-y-6">
           {/* SECTION 1: FDR Overview & Information Comparison */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-            <div className="border-b border-stone-200/80 pb-4">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="border-b border-slate-200/80 pb-4">
               <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
                 1. FDR Overview & Deposit Particulars
               </h3>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Statutory deposit terms, banking details, and maturity calculations under AICTE lien.
+              <p className="text-xs text-slate-500 mt-0.5">
+                Deposit terms, bank particulars, and maturity schedule under AICTE lien.
               </p>
             </div>
 
             {/* Primary Metrics Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
-              <div className="rounded-lg border border-stone-200/90 bg-stone-50/40 p-4">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 block">
+              <div className="rounded-lg border border-slate-200/90 bg-slate-50/40 p-4">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
                   Deposit Amount
                 </span>
-                <div className="mt-1 font-serif text-2xl font-semibold tracking-tight text-slate-900">
+                <div className="mt-1 font-serif text-2xl font-semibold tracking-tight text-slate-900 tabular-nums">
                   {formatIndianCurrency(fdr.amount)}
                 </div>
-                <div className="mt-1 text-xs text-stone-500">
+                <div className="mt-1 text-xs text-slate-500">
                   Statutory security pledge
                 </div>
               </div>
 
-              <div className="rounded-lg border border-stone-200/90 bg-stone-50/40 p-4">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 block">
+              <div className="rounded-lg border border-slate-200/90 bg-slate-50/40 p-4">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
                   Banking Institution
                 </span>
                 <div className="mt-1 flex items-center gap-2">
@@ -469,19 +464,19 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     {fdr.bankName}
                   </span>
                 </div>
-                <div className="mt-1 text-xs text-stone-600">
+                <div className="mt-1 text-xs text-slate-600">
                   Branch: {fdr.branchName}
                 </div>
-                <div className="text-[11px] font-mono text-stone-500">
+                <div className="text-[11px] font-mono text-slate-500">
                   IFSC: {fdr.ifscCode}
                 </div>
               </div>
 
-              <div className="rounded-lg border border-stone-200/90 bg-stone-50/40 p-4">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 block">
-                  Maturity Horizon
+              <div className="rounded-lg border border-slate-200/90 bg-slate-50/40 p-4">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
+                  Due Date
                 </span>
-                <div className="mt-1 font-mono text-base font-semibold text-slate-900">
+                <div className="mt-1 font-mono text-base font-semibold text-slate-900 tabular-nums">
                   {formatIndianDate(fdr.maturityDate, 'short')}
                 </div>
                 <div
@@ -497,49 +492,49 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     ? `Overdue by ${Math.abs(fdr.daysToMaturity)} days`
                     : `${fdr.daysToMaturity} calendar days remaining`}
                 </div>
-                <div className="text-[11px] text-stone-500 font-mono">
+                <div className="text-[11px] text-slate-500 font-mono tabular-nums">
                   Issued: {formatIndianDate(fdr.issueDate, 'short')}
                 </div>
               </div>
             </div>
 
             {/* Distinction: Institution-Submitted vs Independently Verified Information */}
-            <div className="border border-stone-200/90 rounded-lg overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-              <div className="bg-stone-50/75 px-4 py-3 border-b border-stone-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+            <div className="border border-slate-200/90 rounded-lg overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+              <div className="bg-slate-50/75 px-4 py-3 border-b border-slate-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                 <div>
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-900">
-                    Verification Reconciliation Ledger
+                    Data Check
                   </h4>
-                  <p className="text-[11px] text-stone-500">
-                    Distinguishing self-declared institutional entries from independently confirmed banking records.
+                  <p className="text-[11px] text-slate-500">
+                    Comparison of declared institutional entries against independently verified bank records.
                   </p>
                 </div>
-                <span className="text-[10px] font-mono text-stone-500">AUDIT REF: REC-2026-FDR</span>
+                <span className="text-[10px] font-mono text-slate-500">AUDIT REF: REC-2026-FDR</span>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse font-sans">
                   <thead>
-                    <tr className="border-b border-stone-200/80 bg-stone-50/40 text-[11px] font-semibold uppercase tracking-wider text-stone-600">
+                    <tr className="border-b border-slate-200/80 bg-slate-50/40 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
                       <th className="py-2.5 px-3">Field / Particular</th>
                       <th className="py-2.5 px-3">Institution-Submitted Value</th>
                       <th className="py-2.5 px-3">Independently Verified Record</th>
                       <th className="py-2.5 px-3 text-right">Reconciliation State</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-stone-100">
+                  <tbody className="divide-y divide-slate-100">
                     {/* Amount */}
-                    <tr className="hover:bg-stone-50/50">
+                    <tr className="hover:bg-slate-50/50">
                       <td className="py-2.5 px-3 font-medium text-slate-900">
                         Principal Deposit Sum
                       </td>
-                      <td className="py-2.5 px-3 font-semibold text-slate-900">
+                      <td className="py-2.5 px-3 font-semibold text-slate-900 tabular-nums">
                         {formatIndianCurrency(fdr.submittedVsVerified.amount.submitted)}
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800">
+                      <td className="py-2.5 px-3 text-slate-800 tabular-nums">
                         {fdr.submittedVsVerified.amount.verified !== null
                           ? formatIndianCurrency(fdr.submittedVsVerified.amount.verified)
-                          : <span className="text-stone-500 italic">Awaiting branch ledger confirmation</span>}
+                          : <span className="text-slate-500 italic">Awaiting branch ledger confirmation</span>}
                       </td>
                       <td className="py-2.5 px-3 text-right">
                         {fdr.submittedVsVerified.amount.status === 'MATCHED' ? (
@@ -557,18 +552,18 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     </tr>
 
                     {/* Joint Lien Clause */}
-                    <tr className="hover:bg-stone-50/50">
+                    <tr className="hover:bg-slate-50/50">
                       <td className="py-2.5 px-3 font-medium text-slate-900">
                         Joint Lien Clause Marking
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800">
+                      <td className="py-2.5 px-3 text-slate-800">
                         Declared Pledged in favor of AICTE
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800">
+                      <td className="py-2.5 px-3 text-slate-800">
                         {fdr.submittedVsVerified.lienMarked.verified ? (
                           <span>Endorsement stamped on bank ledger</span>
                         ) : (
-                          <span className="text-stone-500 italic">Branch confirmation pending</span>
+                          <span className="text-slate-500 italic">Branch confirmation pending</span>
                         )}
                       </td>
                       <td className="py-2.5 px-3 text-right">
@@ -587,16 +582,16 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     </tr>
 
                     {/* Joint Pledge Holders */}
-                    <tr className="hover:bg-stone-50/50">
+                    <tr className="hover:bg-slate-50/50">
                       <td className="py-2.5 px-3 font-medium text-slate-900">
                         Joint Title Nomenclature
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800 max-w-xs truncate">
+                      <td className="py-2.5 px-3 text-slate-800 max-w-xs truncate">
                         {fdr.submittedVsVerified.jointHolders.submitted}
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800 max-w-xs truncate">
+                      <td className="py-2.5 px-3 text-slate-800 max-w-xs truncate">
                         {fdr.submittedVsVerified.jointHolders.verified || (
-                          <span className="text-stone-500 italic">Verification in progress</span>
+                          <span className="text-slate-500 italic">Verification in progress</span>
                         )}
                       </td>
                       <td className="py-2.5 px-3 text-right">
@@ -615,14 +610,14 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     </tr>
 
                     {/* Branch Confirmation Channel */}
-                    <tr className="hover:bg-stone-50/50">
+                    <tr className="hover:bg-slate-50/50">
                       <td className="py-2.5 px-3 font-medium text-slate-900">
                         Branch Handshake Channel
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800">
+                      <td className="py-2.5 px-3 text-slate-800">
                         Physical Branch Endorsement Letter
                       </td>
-                      <td className="py-2.5 px-3 text-stone-800">
+                      <td className="py-2.5 px-3 text-slate-800">
                         {fdr.bankName} ({fdr.branchName})
                       </td>
                       <td className="py-2.5 px-3 text-right">
@@ -638,20 +633,20 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
           </div>
 
           {/* SECTION 2: Risk Assessment */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-            <div className="border-b border-stone-200/80 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 space-y-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="border-b border-slate-200/80 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
                 <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
                   2. Risk Assessment & Regulatory Factors
                 </h3>
-                <p className="text-xs text-stone-500 mt-0.5">
-                  Algorithmically weighted compliance indicators based on maturity proximity, verification status, and lien validity.
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Compliance indicators evaluating maturity proximity, lien validity, and verification status.
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-stone-600 uppercase tracking-wider text-[11px]">Computed Score:</span>
-                <span className="font-mono text-base font-semibold text-slate-900 bg-stone-100 px-2.5 py-0.5 rounded-md border border-stone-200">
+                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider text-[11px]">Computed Score:</span>
+                <span className="font-mono text-base font-semibold text-slate-900 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200 tabular-nums">
                   {fdr.riskScore}/100
                 </span>
               </div>
@@ -659,13 +654,13 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
 
             {/* Score visual meter (minimal enterprise bar) */}
             <div>
-              <div className="flex items-center justify-between text-xs text-stone-600 mb-1.5 font-sans">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-1.5 font-sans">
                 <span>Compliance Safety Threshold</span>
                 <span className="font-semibold text-slate-900">
                   {fdr.riskLevel === 'HIGH' ? 'Critical Action Zone' : fdr.riskLevel === 'MEDIUM' ? 'Attention Zone' : 'Compliant Zone'}
                 </span>
               </div>
-              <div className="h-2 w-full rounded bg-stone-100 overflow-hidden">
+              <div className="h-2 w-full rounded bg-slate-100 overflow-hidden">
                 <div
                   className={`h-full transition-all duration-300 ${
                     fdr.riskLevel === 'HIGH'
@@ -689,7 +684,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 {fdr.riskFactors.map((factor, idx) => (
                   <div
                     key={idx}
-                    className="border border-stone-200/90 rounded-lg p-3.5 bg-stone-50/40 text-xs space-y-1.5"
+                    className="border border-slate-200/90 rounded-lg p-3.5 bg-slate-50/40 text-xs space-y-1.5"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 font-medium text-slate-900">
@@ -708,19 +703,19 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                             ? 'bg-rose-100 text-rose-800'
                             : factor.severity === 'MEDIUM'
                             ? 'bg-amber-100 text-amber-800'
-                            : 'bg-stone-200 text-stone-800'
+                            : 'bg-slate-200 text-slate-800'
                         }`}
                       >
                         {factor.severity}
                       </span>
                     </div>
 
-                    <p className="text-stone-600 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       {factor.description}
                     </p>
 
-                    <div className="rounded-md bg-white p-2.5 border border-stone-200 text-slate-800 font-mono text-[11px]">
-                      <span className="font-semibold text-stone-500 font-sans mr-1">Evidence:</span>
+                    <div className="rounded bg-white p-2.5 border border-slate-200 text-slate-800 font-mono text-[11px]">
+                      <span className="font-semibold text-slate-500 font-sans mr-1">Evidence:</span>
                       {factor.evidence}
                     </div>
                   </div>
@@ -729,11 +724,11 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             </div>
 
             {/* Recommended Next Actions */}
-            <div className="border-t border-stone-100 pt-4 space-y-2 font-sans">
+            <div className="border-t border-slate-100 pt-4 space-y-2 font-sans">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-900">
                 Recommended Regulatory Actions
               </h4>
-              <ul className="space-y-1.5 text-xs text-stone-700">
+              <ul className="space-y-1.5 text-xs text-slate-700">
                 {fdr.recommendedActions.map((action, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <ChevronRight className="h-3.5 w-3.5 text-teal-800 shrink-0 mt-0.5" />
@@ -744,27 +739,27 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             </div>
 
             {/* Statutory Fraud Safeguard Note */}
-            <div className="rounded-lg border border-stone-200/90 bg-stone-50/60 p-4 flex items-start gap-3 text-xs text-stone-700">
+            <div className="rounded-lg border border-slate-200/90 bg-slate-50/60 p-4 flex items-start gap-3 text-xs text-slate-700">
               <ShieldAlert className="h-4 w-4 text-teal-800 shrink-0 mt-0.5" />
               <div className="leading-relaxed">
-                <strong className="text-slate-900">Statutory Governance Safeguard:</strong> Discrepancies or pending document uploads represent procedural reconciliation flags under AICTE regulations. They must never be labeled or treated as fraudulent without formal inquiry and multi-tier council endorsement.
+                <strong className="text-slate-900">Statutory Safeguard:</strong> Discrepancies represent verification reconciliation flags and do not constitute fraudulent findings without formal council inquiry.
               </div>
             </div>
           </div>
 
           {/* SECTION 3: Document Section */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-stone-200/80 pb-4">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200/80 pb-4">
               <div>
                 <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
                   3. Uploaded Statutory Documents
                 </h3>
-                <p className="text-xs text-stone-500 mt-0.5">
-                  Institutional filings and bank endorsement exhibits (Clearly marked sample artifacts).
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Institutional submissions and bank endorsement certificates.
                 </p>
               </div>
 
-              <span className="text-xs font-mono font-medium text-stone-600 bg-stone-100 px-2.5 py-1 rounded-md border border-stone-200 self-start sm:self-auto">
+              <span className="text-xs font-mono font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200 self-start sm:self-auto">
                 {fdr.documents.length} Exhibits Registered
               </span>
             </div>
@@ -778,10 +773,10 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
               {fdr.documents.map((doc) => (
                 <div
                   key={doc.id}
-                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-lg border border-stone-200/90 bg-stone-50/40 hover:bg-stone-50/80 transition-colors"
+                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-lg border border-slate-200/90 bg-slate-50/40 hover:bg-slate-50/80 transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-stone-200 bg-white text-teal-800 mt-0.5">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded border border-slate-200 bg-white text-teal-800 mt-0.5">
                       <FileText className="h-4 w-4" />
                     </div>
                     <div>
@@ -789,14 +784,14 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                         <span className="font-semibold text-slate-900 text-xs">
                           {doc.filename}
                         </span>
-                        <span className="text-[10px] text-stone-500 font-mono bg-white px-1.5 py-0.5 rounded border border-stone-200">
+                        <span className="text-[10px] text-slate-500 font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200">
                           {doc.fileSize}
                         </span>
                       </div>
-                      <div className="text-[11px] text-stone-500 mt-0.5">
-                        {doc.docType} • Uploaded {doc.uploadedAt}
+                      <div className="text-[11px] text-slate-500 mt-0.5 font-sans">
+                        {doc.docType} · Uploaded {doc.uploadedAt}
                       </div>
-                      <p className="text-[11px] text-stone-600 mt-1 italic">
+                      <p className="text-[11px] text-slate-600 mt-1 italic">
                         {doc.notes}
                       </p>
                     </div>
@@ -822,20 +817,20 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     <button
                       type="button"
                       onClick={() => setPreviewDocument(doc)}
-                      className="inline-flex items-center gap-1 rounded-md border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-stone-700 hover:bg-stone-50 transition-colors shadow-xs"
+                      className="inline-flex items-center gap-1 rounded border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors shadow-xs"
                     >
                       <span>Preview</span>
-                      <ExternalLink className="h-3 w-3 text-stone-400" />
+                      <ExternalLink className="h-3 w-3 text-slate-400" />
                     </button>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-lg border border-stone-200/90 bg-stone-50/60 p-3 text-xs text-stone-600 flex items-center gap-2 font-sans">
+            <div className="rounded-lg border border-slate-200/90 bg-slate-50/60 p-3 text-xs text-slate-600 flex items-center gap-2 font-sans">
               <Info className="h-4 w-4 text-teal-800 shrink-0" />
               <span>
-                <strong>Document Authenticity Policy:</strong> Demo documents represent simulated test exhibits. No claim of authenticity or automated bank confirmation is fabricated.
+                <strong>Authenticity Notice:</strong> Simulated prototype exhibits. Automated banking verification is not claimed.
               </span>
             </div>
           </div>
@@ -844,26 +839,26 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
         {/* RIGHT COLUMN: Lifecycle Timeline & Scrutiny Observations (4 cols) */}
         <div className="lg:col-span-4 space-y-6">
           {/* SECTION 4: Lifecycle Timeline */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-            <div className="border-b border-stone-200/80 pb-3">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <div className="border-b border-slate-200/80 pb-3">
               <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
                 4. Lifecycle Timeline
               </h3>
-              <p className="text-xs text-stone-500 mt-0.5 font-sans">
+              <p className="text-xs text-slate-500 mt-0.5 font-sans">
                 Audit trail of regulatory filings, notices, and approvals.
               </p>
             </div>
 
-            <div className="relative pl-6 space-y-6 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-stone-200 font-sans">
+            <div className="relative pl-6 space-y-6 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200 font-sans">
               {fdr.timeline.map((event) => (
                 <div key={event.id} className="relative group">
                   {/* Timeline dot */}
-                  <div className="absolute -left-6 top-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-stone-100 shadow-xs ring-1 ring-stone-200 group-hover:ring-teal-700 transition-all">
+                  <div className="absolute -left-6 top-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-slate-100 shadow-xs ring-1 ring-slate-200 group-hover:ring-teal-700 transition-all">
                     {renderTimelineIcon(event.type)}
                   </div>
 
                   <div className="space-y-0.5">
-                    <div className="text-[10px] font-mono text-stone-500">
+                    <div className="text-[10px] font-mono text-slate-500 tabular-nums">
                       {event.timestamp}
                     </div>
                     <div className="text-xs font-semibold text-slate-900 leading-snug">
@@ -872,7 +867,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                     <div className="text-[11px] text-teal-800 font-medium">
                       By: {event.actor}
                     </div>
-                    <p className="text-xs text-stone-600 pt-0.5 leading-relaxed">
+                    <p className="text-xs text-slate-600 pt-0.5 leading-relaxed">
                       {event.details}
                     </p>
                   </div>
@@ -882,13 +877,13 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
           </div>
 
           {/* SECTION 5: Scrutiny Observations */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans">
-            <div className="flex items-center justify-between border-b border-stone-200/80 pb-3">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 space-y-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans">
+            <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
               <div>
                 <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
                   5. Scrutiny Observations
                 </h3>
-                <p className="text-xs text-stone-500 mt-0.5">
+                <p className="text-xs text-slate-500 mt-0.5">
                   Internal notes recorded by scrutiny officers.
                 </p>
               </div>
@@ -902,7 +897,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             </div>
 
             {(!fdr.scrutinyNotes || fdr.scrutinyNotes.length === 0) ? (
-              <div className="text-xs text-stone-500 py-4 text-center">
+              <div className="text-xs text-slate-500 py-4 text-center">
                 No scrutiny observations recorded yet.
               </div>
             ) : (
@@ -910,20 +905,20 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 {fdr.scrutinyNotes.map((note) => (
                   <div
                     key={note.id}
-                    className="rounded-lg border border-stone-200/90 bg-stone-50/40 p-3.5 space-y-1 text-xs"
+                    className="rounded-lg border border-slate-200/90 bg-slate-50/40 p-3.5 space-y-1 text-xs"
                   >
                     <div className="flex items-center justify-between text-[11px]">
                       <span className="font-medium text-slate-900">
                         {note.officer}
                       </span>
-                      <span className="text-stone-500 font-mono text-[10px]">
+                      <span className="text-slate-500 font-mono text-[10px] tabular-nums">
                         {note.timestamp}
                       </span>
                     </div>
                     <div className="text-[10px] uppercase font-bold text-teal-800 tracking-wider">
                       {note.category.replace('_', ' ')}
                     </div>
-                    <p className="text-stone-700 mt-1 leading-relaxed">
+                    <p className="text-slate-700 mt-1 leading-relaxed">
                       {note.note}
                     </p>
                   </div>
@@ -933,21 +928,21 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
           </div>
 
           {/* Institutional Contact & Joint Pledge Summary */}
-          <div className="rounded-lg border border-stone-200/90 bg-white p-6 space-y-3 text-xs shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans">
-            <h4 className="font-semibold text-slate-900 uppercase tracking-wider text-[11px] border-b border-stone-200/80 pb-2">
+          <div className="rounded-lg border border-slate-200/90 bg-white p-6 space-y-3 text-xs shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans">
+            <h4 className="font-semibold text-slate-900 uppercase tracking-wider text-[11px] border-b border-slate-200/80 pb-2">
               Statutory Joint Holder Reference
             </h4>
-            <div className="space-y-2 text-stone-700">
+            <div className="space-y-2 text-slate-700">
               <div>
-                <span className="text-stone-500 block text-[11px]">Joint Pledge Holder:</span>
+                <span className="text-slate-500 block text-[11px]">Joint Pledge Holder:</span>
                 <span className="font-medium text-slate-900">{fdr.jointHolder}</span>
               </div>
               <div>
-                <span className="text-stone-500 block text-[11px]">Council Office:</span>
+                <span className="text-slate-500 block text-[11px]">Council Office:</span>
                 <span className="font-medium text-slate-900">{fdr.regionalOffice}</span>
               </div>
               <div>
-                <span className="text-stone-500 block text-[11px]">Core Banking IFSC:</span>
+                <span className="text-slate-500 block text-[11px]">Core Banking IFSC:</span>
                 <span className="font-mono font-medium text-slate-900">{fdr.ifscCode}</span>
               </div>
             </div>
@@ -958,12 +953,12 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
       {/* MODAL 1: Edit Record Modal */}
       {isEditModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-[2px]"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-lg rounded-xl border border-stone-200 bg-white shadow-2xl overflow-hidden font-sans">
-            <div className="flex items-center justify-between border-b border-stone-200/80 bg-stone-50/70 px-6 py-4">
+          <div className="relative w-full max-w-lg rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden font-sans">
+            <div className="flex items-center justify-between border-b border-slate-200/80 bg-slate-50/70 px-6 py-4">
               <div className="flex items-center gap-2">
                 <Edit3 className="h-4 w-4 text-teal-800" />
                 <h3 className="font-serif text-base font-semibold text-slate-900">
@@ -973,7 +968,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
               <button
                 type="button"
                 onClick={() => setIsEditModalOpen(false)}
-                className="rounded-md p-1.5 text-stone-400 hover:text-slate-800 hover:bg-stone-100 transition-colors"
+                className="rounded p-1 text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -988,7 +983,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   type="number"
                   value={editAmount}
                   onChange={(e) => setEditAmount(e.target.value)}
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
                   required
                 />
               </div>
@@ -1001,7 +996,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   type="text"
                   value={editBranch}
                   onChange={(e) => setEditBranch(e.target.value)}
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
                   required
                 />
               </div>
@@ -1014,7 +1009,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   type="date"
                   value={editMaturityDate}
                   onChange={(e) => setEditMaturityDate(e.target.value)}
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
                   required
                 />
               </div>
@@ -1027,26 +1022,26 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   type="text"
                   value={editJointHolder}
                   onChange={(e) => setEditJointHolder(e.target.value)}
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
                   required
                 />
               </div>
 
-              <div className="rounded-lg border border-teal-200/80 bg-teal-50/50 p-3 text-[11px] text-teal-900">
+              <div className="rounded border border-teal-200/80 bg-teal-50/50 p-3 text-[11px] text-teal-900">
                 Notice: Changes will update this record across the FDR Registry and Dashboard for the current session.
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200/80">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/80">
                 <button
                   type="button"
                   onClick={() => setIsEditModalOpen(false)}
-                  className="rounded-md border border-stone-200 bg-white px-3.5 py-1.5 font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+                  className="rounded border border-slate-200 bg-white px-3.5 py-1.5 font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="rounded-md bg-slate-900 px-4 py-1.5 font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
+                  className="rounded bg-slate-900 px-4 py-1.5 font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
                 >
                   Save Changes
                 </button>
@@ -1059,12 +1054,12 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
       {/* MODAL 2: Record Scrutiny Observation Dialog */}
       {isObservationModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-[2px]"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-lg rounded-xl border border-stone-200 bg-white shadow-2xl overflow-hidden font-sans">
-            <div className="flex items-center justify-between border-b border-stone-200/80 bg-stone-50/70 px-6 py-4">
+          <div className="relative w-full max-w-lg rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden font-sans">
+            <div className="flex items-center justify-between border-b border-slate-200/80 bg-slate-50/70 px-6 py-4">
               <div className="flex items-center gap-2">
                 <MessageSquare className="h-4 w-4 text-teal-800" />
                 <h3 className="font-serif text-base font-semibold text-slate-900">
@@ -1074,7 +1069,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
               <button
                 type="button"
                 onClick={() => setIsObservationModalOpen(false)}
-                className="rounded-md p-1.5 text-stone-400 hover:text-slate-800 hover:bg-stone-100 transition-colors"
+                className="rounded p-1 text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -1092,7 +1087,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                       e.target.value as 'AUDIT_NOTE' | 'COMPLIANCE_NOTICE' | 'LEGAL_ADVISORY'
                     )
                   }
-                  className="w-full rounded-md border border-stone-200 bg-white p-2 text-slate-900 focus:border-teal-700 focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-white p-2 text-slate-900 focus:border-teal-700 focus:outline-hidden"
                 >
                   <option value="AUDIT_NOTE">Audit Note (Internal Examination)</option>
                   <option value="COMPLIANCE_NOTICE">Compliance Notice (To Institution)</option>
@@ -1108,7 +1103,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   type="text"
                   disabled
                   value="Shri R. K. Sharma (Scrutiny Officer, AICTE)"
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/70 p-2 text-stone-600 font-medium font-mono text-[11px]"
+                  className="w-full rounded border border-slate-200 bg-slate-50/70 p-2 text-slate-600 font-medium font-mono text-[11px]"
                 />
               </div>
 
@@ -1121,22 +1116,22 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                   value={observationText}
                   onChange={(e) => setObservationText(e.target.value)}
                   placeholder="Detail the scrutiny findings, discrepancy notes, or verification reconciliation status..."
-                  className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                  className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
                   required
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200/80">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/80">
                 <button
                   type="button"
                   onClick={() => setIsObservationModalOpen(false)}
-                  className="rounded-md border border-stone-200 bg-white px-3.5 py-1.5 font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+                  className="rounded border border-slate-200 bg-white px-3.5 py-1.5 font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="rounded-md bg-slate-900 px-4 py-1.5 font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
+                  className="rounded bg-slate-900 px-4 py-1.5 font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
                 >
                   Append Observation
                 </button>
@@ -1149,11 +1144,11 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
       {/* CONFIRMATION DIALOG: Verify Record */}
       {isVerifyDialogOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-[2px]"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-md rounded-xl border border-stone-200 bg-white shadow-2xl overflow-hidden p-6 space-y-4 font-sans">
+          <div className="relative w-full max-w-md rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden p-6 space-y-4 font-sans">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
                 <CheckCircle2 className="h-5 w-5" />
@@ -1162,32 +1157,32 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 <h3 className="font-serif text-base font-semibold text-slate-900">
                   Confirm Statutory Verification
                 </h3>
-                <p className="text-xs text-stone-500 font-mono">
+                <p className="text-xs text-slate-500 font-mono">
                   Ref: {fdr.referenceNo}
                 </p>
               </div>
             </div>
 
-            <p className="text-xs text-stone-700 leading-relaxed">
+            <p className="text-xs text-slate-700 leading-relaxed">
               Are you sure you want to verify this Fixed Deposit Receipt? This will transition the status to <strong>Active & Verified</strong>, lower the risk tier to Low, and record your regulatory sign-off in the audit trail.
             </p>
 
-            <div className="rounded-lg border border-teal-200/80 bg-teal-50/50 p-3 text-[11px] text-teal-900 leading-relaxed">
+            <div className="rounded border border-teal-200/80 bg-teal-50/50 p-3 text-[11px] text-teal-900 leading-relaxed">
               <strong>Demo Disclaimer:</strong> This action updates the local session data. No actual bank clearing or SFMS transmission is executed.
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200/80">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/80">
               <button
                 type="button"
                 onClick={() => setIsVerifyDialogOpen(false)}
-                className="rounded-md border border-stone-200 bg-white px-3.5 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+                className="rounded border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleConfirmVerification}
-                className="rounded-md bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
+                className="rounded bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs"
               >
                 Confirm Verification
               </button>
@@ -1199,11 +1194,11 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
       {/* CONFIRMATION DIALOG: Request Correction */}
       {isCorrectionDialogOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-[2px]"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-lg rounded-xl border border-stone-200 bg-white shadow-2xl overflow-hidden p-6 space-y-4 text-xs font-sans">
+          <div className="relative w-full max-w-lg rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden p-6 space-y-4 text-xs font-sans">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-50 text-amber-800 border border-amber-200">
                 <AlertTriangle className="h-5 w-5" />
@@ -1212,13 +1207,13 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 <h3 className="font-serif text-base font-semibold text-slate-900">
                   Issue Correction Directive to Institution
                 </h3>
-                <p className="text-xs text-stone-500 font-mono">
+                <p className="text-xs text-slate-500 font-mono">
                   Institutional ID: {fdr.aictePermanentId}
                 </p>
               </div>
             </div>
 
-            <p className="text-stone-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Draft the statutory rectification instructions to be logged against this deposit. The institution will be flagged for clarification in the registry.
             </p>
 
@@ -1230,22 +1225,22 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 rows={3}
                 value={correctionDirective}
                 onChange={(e) => setCorrectionDirective(e.target.value)}
-                className="w-full rounded-md border border-stone-200 bg-stone-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
+                className="w-full rounded border border-slate-200 bg-slate-50/30 p-2 text-slate-900 focus:border-teal-700 focus:bg-white focus:outline-hidden"
               />
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200/80">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/80">
               <button
                 type="button"
                 onClick={() => setIsCorrectionDialogOpen(false)}
-                className="rounded-md border border-stone-200 bg-white px-3.5 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+                className="rounded border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleConfirmCorrectionRequest}
-                className="rounded-md bg-amber-800 px-4 py-1.5 text-xs font-semibold text-white hover:bg-amber-900 transition-colors shadow-xs"
+                className="rounded bg-amber-800 px-4 py-1.5 text-xs font-semibold text-white hover:bg-amber-900 transition-colors shadow-xs"
               >
                 Dispatch Correction Directive
               </button>
@@ -1257,12 +1252,12 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
       {/* SAMPLE ARTIFACT PREVIEW DIALOG */}
       {previewDocument && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-[2px]"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-2xl rounded-xl border border-stone-200 bg-white shadow-2xl overflow-hidden font-sans">
-            <div className="flex items-center justify-between border-b border-stone-200/80 bg-stone-50/70 px-6 py-4">
+          <div className="relative w-full max-w-2xl rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden font-sans">
+            <div className="flex items-center justify-between border-b border-slate-200/80 bg-slate-50/70 px-6 py-4">
               <div className="flex items-center gap-2">
                 <FileText className="h-4 w-4 text-teal-800" />
                 <h3 className="font-serif text-base font-semibold text-slate-900">
@@ -1272,7 +1267,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
               <button
                 type="button"
                 onClick={() => setPreviewDocument(null)}
-                className="rounded-md p-1.5 text-stone-400 hover:text-slate-800 hover:bg-stone-100 transition-colors"
+                className="rounded p-1 text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -1281,20 +1276,20 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
             <div className="p-6 space-y-4 text-xs max-h-[80vh] overflow-y-auto">
               {/* Document Banner & Visual Certificate Exhibit */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs bg-stone-50 p-2.5 rounded-lg border border-stone-200">
+                <div className="flex items-center justify-between text-xs bg-slate-50 p-2.5 rounded border border-slate-200">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-slate-900 font-mono">{previewDocument.filename}</span>
-                    <span className="text-[10px] text-stone-500 font-mono bg-white px-2 py-0.5 rounded border border-stone-200">{previewDocument.fileSize}</span>
+                    <span className="text-[10px] text-slate-500 font-mono bg-white px-2 py-0.5 rounded border border-slate-200">{previewDocument.fileSize}</span>
                   </div>
-                  <div className="text-[11px] text-stone-500">
-                    Uploaded: {previewDocument.uploadedAt} • Status: <span className="font-semibold text-teal-800">{previewDocument.reviewStatus.replace('_', ' ')}</span>
+                  <div className="text-[11px] text-slate-500">
+                    Uploaded: {previewDocument.uploadedAt} · Status: <span className="font-semibold text-teal-800">{previewDocument.reviewStatus.replace('_', ' ')}</span>
                   </div>
                 </div>
 
                 <CertificatePreviewVisual fdr={fdr} allowToggleMode={true} />
               </div>
 
-              <div className="rounded-lg border border-amber-200 bg-amber-50/70 p-3 text-[11px] text-amber-900 leading-relaxed font-sans">
+              <div className="rounded border border-amber-200 bg-amber-50/70 p-3 text-[11px] text-amber-900 leading-relaxed font-sans">
                 <strong>Important Notice:</strong> This exhibit is a simulated prototype artifact for compliance workflow testing. AICTE does not claim automated banking verification or endorse external authenticity in this demo view.
               </div>
 
@@ -1302,7 +1297,7 @@ export const FDRDetailsPage: React.FC<FDRDetailsPageProps> = ({
                 <button
                   type="button"
                   onClick={() => setPreviewDocument(null)}
-                  className="rounded-md bg-slate-900 px-4 py-1.5 font-medium text-white hover:bg-slate-800 transition-colors shadow-xs"
+                  className="rounded bg-slate-900 px-4 py-1.5 font-medium text-white hover:bg-slate-800 transition-colors shadow-xs"
                 >
                   Close Preview
                 </button>

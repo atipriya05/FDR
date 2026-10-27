@@ -44,8 +44,8 @@ const LIFECYCLE_STEPS: StepInfo[] = [
   {
     id: 'step-2',
     number: '02',
-    title: 'AI Scrutiny & OCR',
-    subtitle: 'Field Reconciliation',
+    title: 'AI Review',
+    subtitle: 'Field Verification',
     statusMatch: (r) => r.scrutinyStatus === 'DISCREPANCY' || r.riskLevel === 'HIGH',
     navView: 'ai-scrutiny',
     description: 'Automated field cross-check against AICTE Approval Process Handbook (APH 2026-27) parameters.',

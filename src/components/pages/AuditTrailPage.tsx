@@ -160,10 +160,10 @@ export const AuditTrailPage: React.FC<AuditTrailPageProps> = ({
               <span>AICTE Compliance Ledger</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-              Statutory Audit Trail & Activity Log
+              Audit Trail
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-stone-500 max-w-2xl">
-              Immutable chronological register of regulatory approvals, scrutiny remarks, bank handshake events, and officer edits.
+              Chronological log of approvals, scrutiny remarks, and verification events.
             </p>
           </div>
 

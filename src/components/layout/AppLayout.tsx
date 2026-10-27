@@ -19,6 +19,27 @@ export const AppLayout: React.FC = () => {
   const [currentView, setCurrentView] = useState<NavViewId>('command-centre');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
+  // Desktop sidebar collapsed state with localStorage persistence
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('fdr_sentinel_sidebar_collapsed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleToggleSidebar = () => {
+    setIsSidebarCollapsed((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('fdr_sentinel_sidebar_collapsed', String(next));
+      } catch {
+        // ignore in restricted context
+      }
+      return next;
+    });
+  };
+
   // Shared in-memory dataset state across all pages
   const [fdrDataset, setFdrDataset] = useState<FDRRecord[]>(SAMPLE_FDR_DATASET);
   const [selectedFDRId, setSelectedFDRId] = useState<string | null>(null);
@@ -60,30 +81,36 @@ export const AppLayout: React.FC = () => {
     : null;
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900">
       {/* Fixed Left Sidebar */}
       <Sidebar
         currentView={currentView}
         onSelectView={handleSelectView}
         isOpenMobile={isMobileMenuOpen}
         onCloseMobile={() => setIsMobileMenuOpen(false)}
+        isCollapsed={isSidebarCollapsed}
+        onToggleCollapse={handleToggleSidebar}
       />
 
-      {/* Main Content Area (Offset by 72 (18rem) on md screens) */}
-      <div className="flex min-h-screen flex-col md:pl-72">
+      {/* Main Content Area (Offset by 72 (18rem) or 20 (5rem) on md screens) */}
+      <div
+        className={`flex min-h-screen flex-col transition-all duration-200 ease-in-out ${
+          isSidebarCollapsed ? 'md:pl-20' : 'md:pl-72'
+        }`}
+      >
         {/* Top Navigation */}
         <TopNav
           activeItem={activeItem}
           customTitle={
             activeFDR
-              ? `${activeFDR.referenceNo} (FDR Dossier)`
+              ? `${activeFDR.referenceNo} · Dossier`
               : undefined
           }
           onOpenMobileSidebar={() => setIsMobileMenuOpen(true)}
         />
 
         {/* Page Content Body */}
-        <main className="flex-1 p-4 sm:p-6 md:p-8 max-w-7xl w-full mx-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
           {activeFDR ? (
             <FDRDetailsPage
               fdr={activeFDR}

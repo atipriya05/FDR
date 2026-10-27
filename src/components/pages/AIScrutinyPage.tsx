@@ -95,10 +95,10 @@ export const AIScrutinyPage: React.FC<AIScrutinyPageProps> = ({
             <span className="text-stone-500">Heuristic Analysis</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-            AI Scrutiny & Risk Overview
+            AI Review
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl font-sans">
-            Automated document ingestion, OCR extraction analysis, tripartite discrepancy flagging, and explainable statutory risk heuristics.
+          <p className="text-xs sm:text-sm text-stone-600 leading-normal max-w-3xl font-sans">
+            Automated document scrutiny, OCR extraction checks, and explainable risk summaries.
           </p>
         </div>
 

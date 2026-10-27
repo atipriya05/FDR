@@ -1,25 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import {
   Search,
-  Filter,
   RotateCcw,
   Plus,
   ArrowUpDown,
   ArrowUp,
   ArrowDown,
-  Landmark,
-  Building2,
-  Calendar,
-  AlertTriangle,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
-  ShieldCheck,
-  FilePlus2,
-  ArrowLeft,
-  CheckCircle2,
-  Clock,
-  Layers,
   SearchX,
 } from 'lucide-react';
 import {
@@ -29,7 +18,6 @@ import {
   SAMPLE_FDR_DATASET,
   formatIndianCurrency,
   formatIndianDate,
-  calculateDaysToMaturity,
 } from '../../data/fdrData.ts';
 import { AddNewFDRForm } from '../forms/AddNewFDRForm.tsx';
 import { FDRDetailModal } from '../fdr/FDRDetailModal.tsx';
@@ -80,7 +68,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
-  // Selected FDR for detail inspection
+  // Selected FDR for detail inspection modal fallback
   const [selectedFDR, setSelectedFDR] = useState<FDRRecord | null>(null);
 
   // Mode: registry table or "Add New FDR" placeholder submission page
@@ -218,49 +206,49 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
     switch (status) {
       case 'ACTIVE':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Active
           </span>
         );
       case 'PENDING_VERIFICATION':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800 border border-teal-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800 border border-teal-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-teal-600" />
             Pending Verification
           </span>
         );
       case 'EXPIRING_SOON':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Expiring ({days}d)
           </span>
         );
       case 'MATURED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
             Matured
           </span>
         );
       case 'RENEWED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-800 border border-sky-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-800 border border-sky-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
             Renewed
           </span>
         );
       case 'RELEASED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600 border border-stone-200">
-            <span className="h-1.5 w-1.5 rounded-full bg-stone-400" />
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 border border-slate-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             Released
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-700 border border-stone-200">
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 border border-slate-200">
             {status}
           </span>
         );
@@ -272,21 +260,21 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
     switch (risk) {
       case 'HIGH':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
             High
           </span>
         );
       case 'MEDIUM':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Medium
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Low
           </span>
@@ -301,7 +289,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
       <th
         scope="col"
         onClick={() => handleSort(key)}
-        className={`py-3.5 px-3 cursor-pointer select-none font-mono text-[10px] uppercase tracking-wider text-stone-600 hover:text-slate-900 transition-colors ${
+        className={`py-3.5 px-3 cursor-pointer select-none font-mono text-[10px] uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors ${
           align === 'right' ? 'text-right' : 'text-left'
         }`}
       >
@@ -318,7 +306,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
               <ArrowDown className="h-3 w-3 text-teal-800" />
             )
           ) : (
-            <ArrowUpDown className="h-3 w-3 text-stone-300 opacity-60" />
+            <ArrowUpDown className="h-3 w-3 text-slate-300 opacity-60" />
           )}
         </div>
       </th>
@@ -353,22 +341,23 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
       />
 
       {/* Top Banner / Master Registry Header (Editorial Style) */}
-      <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-stone-100/80 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-stone-700 border border-stone-200/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-700" />
-              <span>AICTE National Repository</span>
-              <span className="text-stone-400">•</span>
-              <span className="text-stone-500">{dataset.length} Registered Deposits</span>
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
+              <span className="text-teal-800 font-semibold uppercase tracking-wider text-[11px]">AICTE National Repository</span>
+              <span>·</span>
+              <span>{dataset.length} Registered Deposits</span>
+              <span>·</span>
+              <span>Statutory Oversight</span>
             </div>
             <div className="flex items-center gap-3">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">
                 FDR Master Registry
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans max-w-3xl">
-              Official central ledger of statutory fixed deposit pledges, scheduled commercial bank endorsements, tripartite covenants, and lien discharge certifications.
+            <p className="text-xs sm:text-sm text-slate-600 leading-normal font-sans">
+              Central register of statutory fixed deposit pledges, bank endorsements, and tripartite covenants.
             </p>
           </div>
 
@@ -387,10 +376,10 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
       </div>
 
       {/* Search and Filters Bar */}
-      <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4">
+      <div className="rounded-lg border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4">
         {/* Search bar row */}
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
@@ -399,7 +388,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
               setCurrentPage(1);
             }}
             placeholder="Search by FDR reference number, institution name, bank, or state..."
-            className="w-full rounded-md border border-stone-200 bg-stone-50/50 py-2.5 pl-10 pr-12 text-xs sm:text-sm text-slate-900 placeholder:text-stone-400 focus:bg-white focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-all font-sans"
+            className="w-full rounded-md border border-slate-200 bg-slate-50/50 py-2.5 pl-10 pr-12 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-all font-sans"
           />
           {searchQuery && (
             <button
@@ -408,7 +397,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 setSearchQuery('');
                 setCurrentPage(1);
               }}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-stone-400 hover:text-slate-700"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-slate-400 hover:text-slate-700"
             >
               Clear
             </button>
@@ -416,10 +405,10 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
         </div>
 
         {/* Filter controls row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-3 border-t border-stone-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-3 border-t border-slate-100">
           {/* Status Filter */}
           <div>
-            <label className="block font-mono text-[10px] uppercase tracking-wider text-stone-500 mb-1.5">
+            <label className="block font-mono text-[10px] uppercase tracking-wider text-slate-500 mb-1.5">
               Deposit Status
             </label>
             <select
@@ -428,12 +417,12 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 setSelectedStatus(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full rounded-md border border-stone-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
+              className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
             >
               <option value="ALL">All Statuses</option>
-              <option value="ACTIVE">Active & Verified</option>
-              <option value="PENDING_VERIFICATION">Pending Verification</option>
-              <option value="EXPIRING_SOON">Expiring Soon (≤30d)</option>
+              <option value="ACTIVE">Active FDRs</option>
+              <option value="PENDING_VERIFICATION">Awaiting Review</option>
+              <option value="EXPIRING_SOON">Expiring Soon</option>
               <option value="MATURED">Matured / Overdue</option>
               <option value="RENEWED">Renewed</option>
               <option value="RELEASED">Released</option>
@@ -442,7 +431,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
 
           {/* Risk Level Filter */}
           <div>
-            <label className="block font-mono text-[10px] uppercase tracking-wider text-stone-500 mb-1.5">
+            <label className="block font-mono text-[10px] uppercase tracking-wider text-slate-500 mb-1.5">
               Risk Assessment
             </label>
             <select
@@ -451,7 +440,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 setSelectedRisk(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full rounded-md border border-stone-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
+              className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
             >
               <option value="ALL">All Risk Levels</option>
               <option value="HIGH">High Risk</option>
@@ -462,7 +451,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
 
           {/* Maturity Period Filter */}
           <div>
-            <label className="block font-mono text-[10px] uppercase tracking-wider text-stone-500 mb-1.5">
+            <label className="block font-mono text-[10px] uppercase tracking-wider text-slate-500 mb-1.5">
               Maturity Horizon
             </label>
             <select
@@ -471,7 +460,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 setSelectedMaturityPeriod(e.target.value as MaturityPeriodFilter);
                 setCurrentPage(1);
               }}
-              className="w-full rounded-md border border-stone-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
+              className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-700 focus:ring-1 focus:ring-teal-700/20 focus:outline-hidden transition-colors"
             >
               <option value="ALL">All Horizons</option>
               <option value="EXPIRING_30">Expiring Within 30 Days</option>
@@ -489,8 +478,8 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
               disabled={!isFiltered}
               className={`inline-flex w-full items-center justify-center gap-1.5 rounded-md border px-3 py-2 text-xs font-medium transition-all ${
                 isFiltered
-                  ? 'border-stone-300 bg-stone-50 text-slate-700 hover:bg-stone-100 hover:text-slate-900 shadow-xs'
-                  : 'border-stone-200/60 bg-stone-50/50 text-stone-400 cursor-not-allowed'
+                  ? 'border-slate-300 bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900 shadow-xs'
+                  : 'border-slate-200/60 bg-slate-50/50 text-slate-400 cursor-not-allowed'
               }`}
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -500,7 +489,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
         </div>
 
         {/* Filter Summary Info Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 text-xs text-stone-500 font-mono">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 text-xs text-slate-500 font-mono">
           <div>
             Showing <strong className="font-semibold text-slate-900">{filteredData.length}</strong> of {dataset.length} records
             {isFiltered && <span className="ml-1.5 text-teal-800 font-medium font-sans">(Filtered)</span>}
@@ -518,17 +507,17 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
       </div>
 
       {/* Master Data Table Container */}
-      <div className="rounded-lg border border-stone-200/90 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] overflow-hidden">
+      <div className="rounded-lg border border-slate-200/90 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] overflow-hidden">
         {paginatedData.length === 0 ? (
           /* Empty State */
           <div className="p-16 text-center">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-stone-200 bg-stone-50 text-stone-400 mb-3">
-              <SearchX className="h-6 w-6 text-stone-400" />
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-400 mb-3">
+              <SearchX className="h-6 w-6 text-slate-400" />
             </div>
             <h3 className="font-serif text-base font-semibold text-slate-900">
               No FDR records found matching criteria
             </h3>
-            <p className="mt-1 text-xs text-stone-500 max-w-sm mx-auto font-sans leading-relaxed">
+            <p className="mt-1 text-xs text-slate-500 max-w-sm mx-auto font-sans leading-relaxed">
               {searchQuery
                 ? `No deposits matched "${searchQuery}". Try revising the search terms or clearing the active filters.`
                 : 'No deposits match the selected filter combinations.'}
@@ -549,23 +538,23 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-stone-200 bg-stone-50/80">
+                <tr className="border-b border-slate-200 bg-slate-50/80">
                   {renderSortHeader('FDR Reference', 'referenceNo')}
                   {renderSortHeader('Institution Name', 'institutionName')}
                   {renderSortHeader('Scheduled Bank', 'bankName')}
                   {renderSortHeader('Amount (₹)', 'amount', 'right')}
                   {renderSortHeader('Issue Date', 'issueDate')}
-                  {renderSortHeader('Maturity Date', 'maturityDate')}
+                  {renderSortHeader('Due Date', 'maturityDate')}
                   {renderSortHeader('Risk', 'riskLevel')}
-                  <th scope="col" className="py-3.5 px-3 font-mono text-[10px] uppercase tracking-wider text-stone-600">
+                  <th scope="col" className="py-3.5 px-3 font-mono text-[10px] uppercase tracking-wider text-slate-600">
                     Status
                   </th>
-                  <th scope="col" className="py-3.5 px-4 sm:px-6 text-right font-mono text-[10px] uppercase tracking-wider text-stone-600">
+                  <th scope="col" className="py-3.5 px-4 sm:px-6 text-right font-mono text-[10px] uppercase tracking-wider text-slate-600">
                     Action
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-100">
+              <tbody className="divide-y divide-slate-100">
                 {paginatedData.map((record) => (
                   <tr
                     key={record.id}
@@ -576,14 +565,14 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                         setSelectedFDR(record);
                       }
                     }}
-                    className="hover:bg-stone-50/70 cursor-pointer transition-colors group"
+                    className="hover:bg-slate-50/70 cursor-pointer transition-colors group"
                   >
                     {/* Reference No */}
                     <td className="py-3.5 px-3 font-mono text-xs text-slate-900 whitespace-nowrap">
                       <div className="font-semibold text-slate-900 group-hover:text-teal-900 transition-colors">
                         {record.referenceNo}
                       </div>
-                      <div className="text-[10px] text-stone-400 font-sans mt-0.5">
+                      <div className="text-[10px] text-slate-400 font-sans mt-0.5">
                         IFSC: {record.ifscCode}
                       </div>
                     </td>
@@ -593,9 +582,9 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                       <div className="font-semibold text-slate-900 max-w-xs truncate group-hover:text-teal-900 transition-colors">
                         {record.institutionName}
                       </div>
-                      <div className="text-[11px] text-stone-500 flex items-center gap-2 mt-0.5 font-sans">
+                      <div className="text-[11px] text-slate-500 flex items-center gap-2 mt-0.5 font-sans">
                         <span className="font-mono">ID: {record.aictePermanentId}</span>
-                        <span>•</span>
+                        <span>·</span>
                         <span>{record.state}</span>
                       </div>
                     </td>
@@ -608,24 +597,24 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                           {record.bankName}
                         </span>
                       </div>
-                      <div className="text-[10px] text-stone-500 truncate max-w-[170px] font-sans mt-0.5 ml-7">
+                      <div className="text-[10px] text-slate-500 truncate max-w-[170px] font-sans mt-0.5 ml-7">
                         {record.branchName}
                       </div>
                     </td>
 
                     {/* Deposit Amount */}
-                    <td className="py-3.5 px-3 font-mono font-semibold text-slate-900 text-right whitespace-nowrap">
+                    <td className="py-3.5 px-3 font-mono font-semibold text-slate-900 text-right whitespace-nowrap tabular-nums">
                       {formatIndianCurrency(record.amount)}
                     </td>
 
                     {/* Issue Date */}
-                    <td className="py-3.5 px-3 text-stone-700 whitespace-nowrap font-mono text-xs">
+                    <td className="py-3.5 px-3 text-slate-700 whitespace-nowrap font-mono text-xs tabular-nums">
                       {formatIndianDate(record.issueDate, 'short')}
                     </td>
 
                     {/* Maturity Date */}
                     <td className="py-3.5 px-3 whitespace-nowrap">
-                      <div className="font-mono text-xs text-slate-900">
+                      <div className="font-mono text-xs text-slate-900 tabular-nums">
                         {formatIndianDate(record.maturityDate, 'short')}
                       </div>
                       <div
@@ -634,7 +623,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                             ? 'text-rose-800'
                             : record.daysToMaturity <= 30
                             ? 'text-amber-800'
-                            : 'text-stone-500'
+                            : 'text-slate-500'
                         }`}
                       >
                         {record.daysToMaturity < 0
@@ -665,10 +654,10 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                             setSelectedFDR(record);
                           }
                         }}
-                        className="inline-flex items-center gap-1 rounded-md border border-stone-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-stone-50 group-hover:border-stone-300 transition-colors shadow-xs"
+                        className="inline-flex items-center gap-1 rounded-md border border-slate-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 group-hover:border-slate-300 transition-colors shadow-xs"
                       >
                         <span>Dossier</span>
-                        <ExternalLink className="h-3 w-3 text-stone-400" />
+                        <ExternalLink className="h-3 w-3 text-slate-400" />
                       </button>
                     </td>
                   </tr>
@@ -680,8 +669,8 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
 
         {/* Pagination & Footer */}
         {sortedData.length > 0 && (
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-stone-200/80 bg-stone-50/60 px-5 py-3.5 text-xs text-stone-600">
-            <div className="font-mono text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-slate-200/80 bg-slate-50/60 px-5 py-3.5 text-xs text-slate-600">
+            <div className="font-mono text-xs tabular-nums">
               Showing{' '}
               <strong className="font-semibold text-slate-900">
                 {(currentPage - 1) * pageSize + 1}
@@ -703,7 +692,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 type="button"
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className="inline-flex h-8 items-center justify-center rounded-md border border-stone-200 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-xs transition-colors"
+                className="inline-flex h-8 items-center justify-center rounded-md border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-xs transition-colors"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="h-3.5 w-3.5 mr-1" />
@@ -719,7 +708,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                     className={`h-8 min-w-[32px] rounded-md px-2 text-xs font-mono font-medium transition-colors ${
                       currentPage === page
                         ? 'bg-slate-900 text-white font-semibold shadow-xs'
-                        : 'border border-stone-200 bg-white text-slate-700 hover:bg-stone-50'
+                        : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     {page}
@@ -731,7 +720,7 @@ export const FDRRegistryPage: React.FC<FDRRegistryPageProps> = ({
                 type="button"
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
-                className="inline-flex h-8 items-center justify-center rounded-md border border-stone-200 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-xs transition-colors"
+                className="inline-flex h-8 items-center justify-center rounded-md border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-xs transition-colors"
                 aria-label="Next page"
               >
                 <span>Next</span>

@@ -164,10 +164,10 @@ export const InstitutionsPage: React.FC<InstitutionsPageProps> = ({
             <span className="text-stone-500">Approved Institutions</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-            Approved Technical Institutions
+            Institutions
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl font-sans">
-            Master register of technical universities, engineering colleges, and polytechnics maintaining statutory security deposit covenants under AICTE regulations.
+          <p className="text-xs sm:text-sm text-stone-600 leading-normal max-w-3xl font-sans">
+            Directory of institutions maintaining security deposit covenants.
           </p>
         </div>
 

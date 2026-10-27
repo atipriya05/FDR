@@ -218,7 +218,7 @@ export const FDRDetailModal: React.FC<FDRDetailModalProps> = ({
                 <span className="font-mono font-medium text-slate-900">{formatIndianDate(fdr.issueDate, 'short')}</span>
               </div>
               <div>
-                <span className="text-stone-500 block text-[11px]">Maturity Date</span>
+                <span className="text-stone-500 block text-[11px]">Due Date</span>
                 <span className="font-mono font-semibold text-slate-900">{formatIndianDate(fdr.maturityDate, 'short')}</span>
               </div>
               <div>

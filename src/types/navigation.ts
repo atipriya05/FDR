@@ -40,7 +40,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     id: 'ai-scrutiny',
-    label: 'AI Scrutiny',
+    label: 'AI Review',
     iconName: 'ShieldCheck',
     badge: 'AI',
     description: 'Automated verification, OCR extraction, and bank endorsement validation.',

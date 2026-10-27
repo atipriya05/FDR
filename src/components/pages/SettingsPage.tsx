@@ -79,10 +79,10 @@ export const SettingsPage: React.FC = () => {
               <span>Portal Governance Configuration</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-              System Settings & Notice Thresholds
+              Settings
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-stone-500 max-w-2xl">
-              Configure statutory pre-maturity notice intervals, regional notification preferences, and officer profile parameters.
+              Configure notice intervals, regional preferences, and officer profile parameters.
             </p>
           </div>
 

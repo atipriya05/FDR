@@ -178,10 +178,10 @@ export const DeadlinesPage: React.FC<DeadlinesPageProps> = ({
             <span className="text-stone-500">Notice Surveillance</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-            Statutory FDR Deadlines & Expiries
+            Deadlines
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl font-sans">
-            Automated monitoring of 30-day pre-maturity notice thresholds, calendar decay, and overdue deposit pledges requiring renewal directives.
+          <p className="text-xs sm:text-sm text-stone-600 leading-normal max-w-3xl font-sans">
+            Monitor upcoming maturities, pre-maturity notice thresholds, and renewal timelines.
           </p>
         </div>
 
@@ -299,7 +299,7 @@ export const DeadlinesPage: React.FC<DeadlinesPageProps> = ({
                   <th scope="col" className="py-3 px-3">FDR Reference</th>
                   <th scope="col" className="py-3 px-3">Scheduled Bank</th>
                   <th scope="col" className="py-3 px-3 text-right">Amount (₹)</th>
-                  <th scope="col" className="py-3 px-3">Maturity Date</th>
+                  <th scope="col" className="py-3 px-3">Due Date</th>
                   <th scope="col" className="py-3 px-3">Days Remaining</th>
                   <th scope="col" className="py-3 px-4 text-right">Council Directives</th>
                 </tr>

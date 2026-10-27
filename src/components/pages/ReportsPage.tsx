@@ -185,10 +185,10 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
               <span>AICTE Analytical Services</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-              Statutory Audit Reports & Exports
+              Reports
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-stone-500 max-w-2xl">
-              Regional council allocations, banking concentration exposures, and official compliance ledger exports.
+              Regional allocations, banking concentration exposures, and compliance ledger exports.
             </p>
           </div>
 
@@ -199,7 +199,7 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
             className="inline-flex items-center gap-2 rounded-md bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition-colors shadow-xs self-start sm:self-auto"
           >
             <Download className="h-4 w-4" />
-            <span>Export Report to CSV ({filteredData.length} Records)</span>
+            <span>Export CSV</span>
           </button>
         </div>
       </div>
@@ -215,7 +215,7 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({
       {/* Summary KPI Strip */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
         <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-          <span className="text-stone-500 font-medium block">Total Monitored Corpus</span>
+          <span className="text-stone-500 font-medium block">Total Deposits</span>
           <div className="font-serif text-2xl font-semibold text-slate-900 mt-1">
             {formatIndianCurrency(summaryMetrics.totalAmount, true)}
           </div>

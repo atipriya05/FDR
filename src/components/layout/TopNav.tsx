@@ -28,7 +28,7 @@ export const TopNav: React.FC<TopNavProps> = ({
 
         <div className="flex items-center gap-2">
           <span className="hidden font-mono text-[11px] uppercase tracking-wider text-stone-500 sm:inline">
-            AICTE Portal
+            FDR Sentinel
           </span>
           <ChevronRight className="hidden h-3.5 w-3.5 text-stone-300 sm:inline" />
           <h1 className="font-serif text-lg font-semibold tracking-tight text-slate-900">

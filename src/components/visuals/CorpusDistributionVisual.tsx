@@ -57,17 +57,17 @@ export const CorpusDistributionVisual: React.FC<CorpusDistributionVisualProps> =
       {/* Header */}
       <div className="border-b border-stone-200/80 pb-4">
         <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
-          Statutory Corpus Allocation & Banking Concentration
+          Deposit Breakdown
         </h3>
         <p className="text-xs text-stone-500">
-          Real-time security collateral distribution across status tiers and premier depositary banks
+          Security collateral distribution across status tiers and premier depositary banks.
         </p>
       </div>
 
       {/* Multi-Segmented Visual Distribution Bar */}
       <div className="space-y-2">
         <div className="flex items-center justify-between text-xs text-stone-600">
-          <span className="font-semibold text-slate-900">Collateral Health Composition</span>
+          <span className="font-semibold text-slate-900">Deposit Status</span>
           <span className="font-mono text-[11px]">TOTAL: {formatIndianCurrency(totalAmount, true)}</span>
         </div>
 
@@ -138,7 +138,7 @@ export const CorpusDistributionVisual: React.FC<CorpusDistributionVisualProps> =
       {/* Top Banks Visual Exposure Strip */}
       <div className="pt-2 border-t border-stone-100">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 block mb-3">
-          Top Scheduled Commercial Bank Holdings
+          Bank Distribution
         </span>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">

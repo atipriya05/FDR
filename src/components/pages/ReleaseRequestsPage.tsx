@@ -226,10 +226,10 @@ export const ReleaseRequestsPage: React.FC<ReleaseRequestsPageProps> = ({
               <span>Encashment & Security Refund Desk</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-              Security Deposit Release Requests
+              Release Requests
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-stone-500 max-w-2xl">
-              Institutional encashment petitions, course closure refund certifications, and tripartite lien discharge workflows.
+              Review deposit release petitions and lien discharge authorizations.
             </p>
           </div>
 

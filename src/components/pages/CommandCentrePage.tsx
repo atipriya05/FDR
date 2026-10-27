@@ -6,14 +6,11 @@ import {
   Clock,
   ArrowRight,
   ExternalLink,
-  Building2,
-  Calendar,
   Layers,
   Activity,
   CheckCircle2,
   FileText,
   TrendingUp,
-  Sparkles,
 } from 'lucide-react';
 import {
   BarChart,
@@ -105,28 +102,28 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
     switch (level) {
       case 'HIGH':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800 border border-rose-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
             High Risk
           </span>
         );
       case 'MEDIUM':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Medium
           </span>
         );
       case 'LOW':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Low Risk
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-700 border border-stone-200">
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 border border-slate-200">
             {level}
           </span>
         );
@@ -138,46 +135,46 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
     switch (status) {
       case 'PENDING_VERIFICATION':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800 border border-teal-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800 border border-teal-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-teal-600" />
             Pending Verification
           </span>
         );
       case 'EXPIRING_SOON':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 border border-amber-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Expiring ({days}d)
           </span>
         );
       case 'MATURED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-800 border border-stone-300">
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-800 border border-slate-300">
             Matured
           </span>
         );
       case 'RENEWED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-800 border border-sky-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-800 border border-sky-200/80">
             Renewed
           </span>
         );
       case 'RELEASED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600 border border-stone-200">
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 border border-slate-200">
             Released
           </span>
         );
       case 'ACTIVE':
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
+          <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800 border border-emerald-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Active
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 rounded-sm bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-700 border border-stone-200">
+          <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 border border-slate-200">
             {status}
           </span>
         );
@@ -194,7 +191,7 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
       case 'RENEWAL':
         return <TrendingUp className="h-3.5 w-3.5 text-sky-700" />;
       default:
-        return <FileText className="h-3.5 w-3.5 text-stone-600" />;
+        return <FileText className="h-3.5 w-3.5 text-slate-600" />;
     }
   };
 
@@ -209,20 +206,21 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
       />
 
       {/* Top Banner / Welcome Action Header (Editorial Style) */}
-      <div className="rounded-lg border border-stone-200/90 bg-white p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-          <div className="max-w-3xl space-y-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-stone-100/80 px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-stone-700 border border-stone-200/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-700" />
-              <span>AICTE National Security Deposit Monitoring</span>
-              <span className="text-stone-400">•</span>
-              <span className="text-stone-500">Statutory Oversight</span>
+      <div className="rounded-lg border border-slate-200/90 bg-white p-6 sm:p-7 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+          <div className="max-w-3xl space-y-1.5">
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
+              <span className="text-teal-800 font-semibold uppercase tracking-wider text-[11px]">FDR Sentinel</span>
+              <span>·</span>
+              <span>AY 2026–27</span>
+              <span>·</span>
+              <span>Official Registry</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">
-              Command Centre Dashboard
+            <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
+              Command Centre
             </h2>
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans pt-0.5">
-              Comprehensive regulatory intelligence and surveillance of institutional Fixed Deposit Receipts, scheduled bank tripartite covenants, and lien enforcement across all regional councils.
+            <p className="text-xs sm:text-sm text-slate-600 leading-normal font-sans">
+              Every deposit. Every deadline. Under control. Surveillance of institutional fixed deposits, bank covenants, and lien status.
             </p>
           </div>
 
@@ -231,11 +229,11 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('fdr-registry')}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-md bg-slate-900 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-slate-800 shadow-xs transition-colors border border-slate-900"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-md bg-slate-900 px-4 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-slate-800 shadow-xs transition-colors border border-slate-900"
             >
               <Landmark className="h-4 w-4 text-teal-300" />
               <span>Open FDR Registry</span>
-              <ArrowRight className="h-3.5 w-3.5 text-stone-400" />
+              <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
             </button>
           </div>
         </div>
@@ -244,107 +242,113 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
       {/* Visual Statutory Lifecycle Pipeline */}
       <LifecycleProcessFlow dataset={dataset} onNavigate={onNavigate} />
 
-      {/* 4 Compact KPI Cards (calculated from dataset) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      {/* 4 Compact KPI Cards with Anchor ID */}
+      <div id="overview-kpis" className="scroll-mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {/* Card 1: Total FDRs */}
-        <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-stone-500">
+        <div className="rounded-lg border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-slate-500">
             <span>Total FDRs</span>
-            <div className="flex h-7 w-7 items-center justify-center rounded-md border border-stone-200/80 bg-stone-50 text-slate-700">
+            <div className="flex h-7 w-7 items-center justify-center rounded border border-slate-200/80 bg-slate-50 text-slate-700">
               <Landmark className="h-3.5 w-3.5 text-teal-800" />
             </div>
           </div>
           <div className="mt-3.5 flex items-baseline justify-between gap-2">
-            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900">
+            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900 tabular-nums">
               {kpiStats.totalCount}
             </div>
-            <div className="font-mono text-xs font-medium text-stone-700 bg-stone-100/70 px-2 py-0.5 rounded border border-stone-200/60">
+            <div className="font-mono text-xs font-medium text-slate-700 bg-slate-100/70 px-2 py-0.5 rounded border border-slate-200/60 tabular-nums">
               {formatIndianCurrency(kpiStats.totalValue, true)}
             </div>
           </div>
-          <p className="mt-2 text-[11px] text-stone-500">
-            Aggregate institutional deposit book
-          </p>
+          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Total Deposits</span>
+            <span className="font-mono text-slate-600">100% indexed</span>
+          </div>
         </div>
 
         {/* Card 2: Active FDRs */}
-        <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-stone-500">
-            <span>Active & Verified</span>
-            <div className="flex h-7 w-7 items-center justify-center rounded-md border border-emerald-200/80 bg-emerald-50 text-emerald-800">
+        <div className="rounded-lg border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-slate-500">
+            <span>Active FDRs</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded border border-emerald-200/80 bg-emerald-50 text-emerald-800">
               <CheckCircle2 className="h-3.5 w-3.5" />
             </div>
           </div>
           <div className="mt-3.5 flex items-baseline justify-between gap-2">
-            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900">
+            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900 tabular-nums">
               {kpiStats.activeCount}
             </div>
-            <div className="font-mono text-xs font-medium text-stone-700 bg-stone-100/70 px-2 py-0.5 rounded border border-stone-200/60">
+            <div className="font-mono text-xs font-medium text-slate-700 bg-slate-100/70 px-2 py-0.5 rounded border border-slate-200/60 tabular-nums">
               {formatIndianCurrency(kpiStats.activeValue, true)}
             </div>
           </div>
-          <p className="mt-2 text-[11px] text-stone-500">
-            Tripartite joint lien confirmed
-          </p>
+          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Lien confirmed</span>
+            <span className="font-mono text-emerald-700 font-semibold">
+              {Math.round((kpiStats.activeCount / Math.max(1, kpiStats.totalCount)) * 100)}% of total
+            </span>
+          </div>
         </div>
 
-        {/* Card 3: Expiring Within 30 Days */}
-        <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-stone-500">
-            <span>Expiring &le; 30 Days</span>
-            <div className="flex h-7 w-7 items-center justify-center rounded-md border border-amber-200/80 bg-amber-50 text-amber-800">
+        {/* Card 3: Expiring Soon */}
+        <div className="rounded-lg border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-slate-500">
+            <span>Expiring Soon</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded border border-amber-200/80 bg-amber-50 text-amber-800">
               <Clock className="h-3.5 w-3.5" />
             </div>
           </div>
           <div className="mt-3.5 flex items-baseline justify-between gap-2">
-            <div className="font-serif text-3xl font-semibold tracking-tight text-amber-800">
+            <div className="font-serif text-3xl font-semibold tracking-tight text-amber-800 tabular-nums">
               {kpiStats.expiring30Count}
             </div>
-            <div className="font-mono text-xs font-medium text-stone-700 bg-stone-100/70 px-2 py-0.5 rounded border border-stone-200/60">
+            <div className="font-mono text-xs font-medium text-slate-700 bg-slate-100/70 px-2 py-0.5 rounded border border-slate-200/60 tabular-nums">
               {formatIndianCurrency(kpiStats.expiring30Value, true)}
             </div>
           </div>
-          <p className="mt-2 text-[11px] text-stone-500">
-            Statutory pre-maturity directives due
-          </p>
+          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Renewal notices</span>
+            <span className="font-mono text-amber-800 font-semibold">Action required</span>
+          </div>
         </div>
 
-        {/* Card 4: Pending Verification */}
-        <div className="rounded-lg border border-stone-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-stone-500">
-            <span>Pending Review</span>
-            <div className="flex h-7 w-7 items-center justify-center rounded-md border border-teal-200/80 bg-teal-50 text-teal-800">
+        {/* Card 4: Awaiting Review */}
+        <div className="rounded-lg border border-slate-200/90 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+          <div className="flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-slate-500">
+            <span>Awaiting Review</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded border border-teal-200/80 bg-teal-50 text-teal-800">
               <ShieldCheck className="h-3.5 w-3.5" />
             </div>
           </div>
           <div className="mt-3.5 flex items-baseline justify-between gap-2">
-            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900">
+            <div className="font-serif text-3xl font-semibold tracking-tight text-slate-900 tabular-nums">
               {kpiStats.pendingCount}
             </div>
-            <div className="font-mono text-xs font-medium text-stone-700 bg-stone-100/70 px-2 py-0.5 rounded border border-stone-200/60">
+            <div className="font-mono text-xs font-medium text-slate-700 bg-slate-100/70 px-2 py-0.5 rounded border border-slate-200/60 tabular-nums">
               {formatIndianCurrency(kpiStats.pendingValue, true)}
             </div>
           </div>
-          <p className="mt-2 text-[11px] text-stone-500">
-            Under scrutiny & bank validation
-          </p>
+          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500">
+            <span>In scrutiny queue</span>
+            <span className="font-mono text-teal-800 font-semibold">Validation queue</span>
+          </div>
         </div>
       </div>
 
       {/* Analytics & Activity Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Maturity Overview Chart (Recharts) */}
-        <div className="lg:col-span-2 rounded-lg border border-stone-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-stone-200/80 pb-4 mb-5">
+        {/* Maturity Overview Chart with Anchor ID */}
+        <div id="maturity-horizon" className="scroll-mt-20 lg:col-span-2 rounded-lg border border-slate-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200/80 pb-4 mb-5">
             <div>
               <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
-                Deposit Maturity Horizon
+                Upcoming Maturities
               </h3>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Maturity volume distribution by quarter and month (AY 2026-27 cycle)
+              <p className="text-xs text-slate-500 mt-0.5">
+                Quarterly & monthly distribution (AY 2026-27 cycle)
               </p>
             </div>
-            <div className="flex items-center gap-3 text-xs font-mono text-stone-600 bg-stone-50 px-3 py-1.5 rounded-md border border-stone-200/70">
+            <div className="flex items-center gap-3 text-xs font-mono text-slate-600 bg-slate-50 px-3 py-1.5 rounded border border-slate-200/70">
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-slate-900" />
                 <span>Certificates</span>
@@ -357,8 +361,8 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
           </div>
 
           {dataset.length === 0 ? (
-            <div className="h-64 flex flex-col items-center justify-center text-stone-500 text-xs">
-              <Layers className="h-8 w-8 text-stone-300 mb-2" />
+            <div className="h-64 flex flex-col items-center justify-center text-slate-500 text-xs">
+              <Layers className="h-8 w-8 text-slate-300 mb-2" />
               No maturity timeline data available.
             </div>
           ) : (
@@ -417,31 +421,31 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
             </div>
           )}
 
-          <div className="mt-4 border-t border-stone-100 pt-3 flex flex-wrap items-center justify-between text-xs text-stone-500 font-mono">
+          <div className="mt-4 border-t border-slate-100 pt-3 flex flex-wrap items-center justify-between text-xs text-slate-500 font-mono">
             <span>Projection Model: Statutory APH Cycle</span>
             <span className="font-sans font-medium text-slate-800">
-              Immediate attention: {kpiStats.expiring30Count} certificates expiring within 30 days
+              {kpiStats.expiring30Count} certificates expiring within 30 days
             </span>
           </div>
         </div>
 
         {/* Recent Activity Section */}
-        <div className="rounded-lg border border-stone-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="rounded-lg border border-slate-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between border-b border-stone-200/80 pb-4 mb-4">
+            <div className="flex items-center justify-between border-b border-slate-200/80 pb-4 mb-4">
               <div>
                 <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
-                  Regulatory Activity
+                  Recent Activity
                 </h3>
-                <p className="text-xs text-stone-500 mt-0.5">
-                  Latest compliance & verification log
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Recent compliance logs
                 </p>
               </div>
               <Activity className="h-4 w-4 text-teal-800" />
             </div>
 
             {SAMPLE_ACTIVITY_EVENTS.length === 0 ? (
-              <div className="text-center py-8 text-xs text-stone-500">
+              <div className="text-center py-8 text-xs text-slate-500">
                 No recent activity records found.
               </div>
             ) : (
@@ -449,9 +453,9 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
                 {SAMPLE_ACTIVITY_EVENTS.map((event) => (
                   <div
                     key={event.id}
-                    className="flex items-start gap-3 border-b border-stone-100 pb-3 last:border-0 last:pb-0"
+                    className="flex items-start gap-3 border-b border-slate-100 pb-3 last:border-0 last:pb-0"
                   >
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-stone-200/80 bg-stone-50 mt-0.5">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-slate-200/80 bg-slate-50 mt-0.5">
                       {renderActivityIcon(event.type)}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -459,14 +463,14 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
                         <span className="text-xs font-semibold text-slate-900 truncate">
                           {event.title}
                         </span>
-                        <span className="font-mono text-[10px] text-stone-400 shrink-0">
+                        <span className="font-mono text-[10px] text-slate-400 shrink-0">
                           {event.timeAgo}
                         </span>
                       </div>
-                      <p className="text-[11px] text-stone-600 line-clamp-2 mt-0.5 leading-snug">
+                      <p className="text-[11px] text-slate-600 line-clamp-2 mt-0.5 leading-snug">
                         {event.description}
                       </p>
-                      <div className="mt-1 font-mono text-[10px] text-stone-400">
+                      <div className="mt-1 font-mono text-[10px] text-slate-400">
                         Ref: {event.referenceNo}
                       </div>
                     </div>
@@ -476,8 +480,8 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
             )}
           </div>
 
-          <div className="mt-4 pt-3.5 border-t border-stone-100 flex items-center justify-between text-xs">
-            <span className="font-mono text-[11px] text-stone-400">Central Audit Node</span>
+          <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span className="font-mono text-[11px] text-slate-400">Audit Trail</span>
             <button
               type="button"
               onClick={() => onNavigate('audit-trail')}
@@ -490,23 +494,25 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
         </div>
       </div>
 
-      {/* Visual Corpus Allocation & Banking Concentration */}
-      <CorpusDistributionVisual dataset={dataset} />
+      {/* Visual Corpus Allocation & Banking Concentration with Anchor ID */}
+      <div id="corpus-distribution" className="scroll-mt-20">
+        <CorpusDistributionVisual dataset={dataset} />
+      </div>
 
-      {/* 5 Most Urgent FDR Cases Compact Table */}
-      <div className="rounded-lg border border-stone-200/90 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] overflow-hidden">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-stone-200/80 p-5 sm:px-6 bg-stone-50/40">
+      {/* 5 Most Urgent FDR Cases Compact Table with Anchor ID */}
+      <div id="urgent-cases" className="scroll-mt-20 rounded-lg border border-slate-200/90 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)] overflow-hidden">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-200/80 p-5 sm:px-6 bg-slate-50/50">
           <div>
             <div className="flex items-center gap-2.5">
               <h3 className="font-serif text-lg font-semibold tracking-tight text-slate-900">
-                Five Most Urgent FDR Cases
+                Urgent Cases
               </h3>
-              <span className="rounded-full bg-rose-50 px-2.5 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-rose-800 border border-rose-200">
+              <span className="rounded bg-rose-50 px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-rose-800 border border-rose-200">
                 Action Required
               </span>
             </div>
-            <p className="text-xs text-stone-500 mt-1">
-              Select any row to inspect certificate details, joint pledge endorsements, or initiate scrutiny actions.
+            <p className="text-xs text-slate-500 mt-1">
+              Priority certificates requiring renewal notices, scrutiny, or lien verification.
             </p>
           </div>
 
@@ -521,24 +527,24 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
         </div>
 
         {urgentCases.length === 0 ? (
-          <div className="p-8 text-center text-xs text-stone-500">
+          <div className="p-8 text-center text-xs text-slate-500">
             No urgent FDR cases found at this time. All active records are within safe compliance thresholds.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-stone-200 bg-stone-50/80 font-mono text-[10px] uppercase tracking-wider text-stone-600">
+                <tr className="border-b border-slate-200 bg-slate-50/80 font-mono text-[10px] uppercase tracking-wider text-slate-600">
                   <th scope="col" className="py-3.5 px-4 sm:px-6">Institution</th>
                   <th scope="col" className="py-3.5 px-3">FDR Reference</th>
                   <th scope="col" className="py-3.5 px-3 text-right">Pledged Amount</th>
-                  <th scope="col" className="py-3.5 px-3">Maturity Date</th>
+                  <th scope="col" className="py-3.5 px-3">Due Date</th>
                   <th scope="col" className="py-3.5 px-3">Risk Assessment</th>
                   <th scope="col" className="py-3.5 px-3">Status</th>
                   <th scope="col" className="py-3.5 px-4 sm:px-6 text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-100">
+              <tbody className="divide-y divide-slate-100">
                 {urgentCases.map((record) => (
                   <tr
                     key={record.id}
@@ -549,16 +555,16 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
                         setSelectedFDR(record);
                       }
                     }}
-                    className="hover:bg-stone-50/70 cursor-pointer transition-colors group"
+                    className="hover:bg-slate-50/80 cursor-pointer transition-colors group"
                   >
                     {/* Institution */}
                     <td className="py-3.5 px-4 sm:px-6">
                       <div className="font-semibold text-slate-900 group-hover:text-teal-900 transition-colors">
                         {record.institutionName}
                       </div>
-                      <div className="text-[11px] text-stone-500 flex items-center gap-2 mt-0.5">
+                      <div className="text-[11px] text-slate-500 flex items-center gap-2 mt-0.5">
                         <span className="font-mono">ID: {record.aictePermanentId}</span>
-                        <span>•</span>
+                        <span>·</span>
                         <span>{record.state}</span>
                       </div>
                     </td>
@@ -572,13 +578,13 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
                     </td>
 
                     {/* Amount */}
-                    <td className="py-3.5 px-3 font-mono font-semibold text-slate-900 whitespace-nowrap text-right">
+                    <td className="py-3.5 px-3 font-mono font-semibold text-slate-900 whitespace-nowrap text-right tabular-nums">
                       {formatIndianCurrency(record.amount)}
                     </td>
 
                     {/* Maturity Date */}
                     <td className="py-3.5 px-3 whitespace-nowrap">
-                      <div className="font-mono text-xs text-slate-900">
+                      <div className="font-mono text-xs text-slate-900 tabular-nums">
                         {formatIndianDate(record.maturityDate, 'short')}
                       </div>
                       <div className="text-[11px] text-amber-800 font-medium mt-0.5">
@@ -610,10 +616,10 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
                             setSelectedFDR(record);
                           }
                         }}
-                        className="inline-flex items-center gap-1 rounded-md border border-stone-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-stone-50 group-hover:border-stone-300 transition-colors shadow-xs"
+                        className="inline-flex items-center gap-1 rounded border border-slate-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 group-hover:border-slate-300 transition-colors shadow-xs"
                       >
                         <span>Dossier</span>
-                        <ExternalLink className="h-3 w-3 text-stone-400" />
+                        <ExternalLink className="h-3 w-3 text-slate-400" />
                       </button>
                     </td>
                   </tr>
@@ -623,7 +629,7 @@ export const CommandCentrePage: React.FC<CommandCentrePageProps> = ({
           </div>
         )}
 
-        <div className="p-4 border-t border-stone-200/80 bg-stone-50/60 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-stone-500 gap-2">
+        <div className="p-4 border-t border-slate-200/80 bg-slate-50/60 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500 gap-2">
           <span className="font-mono text-[11px]">Prioritized by statutory maturity horizon and risk score</span>
           <button
             type="button"
